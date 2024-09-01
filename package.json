@@ -20,7 +20,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
-    "chart.js": "^4.4.4",
     "date-fns": "^3.6.0",
     "install": "^0.13.0",
     "lodash": "^4.17.21",
