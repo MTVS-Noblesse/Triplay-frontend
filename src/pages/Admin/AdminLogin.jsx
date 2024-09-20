@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { GlobalStyle } from '../../styles/GlobalStyles';
 import AdminHeader from '../../layout/AdminHeader';
 import Branding from '../../assets/svgs/branding.svg';
 
+// 관리자 로그인 뷰
 const AdminLogin = () => {
   const navigate = useNavigate();
   const [id, setId] = useState('');
@@ -35,42 +35,39 @@ const AdminLogin = () => {
   };
   
   return (
-    <>
-      <GlobalStyle />
-      <Container>
-        <AdminHeader />
-        <MainContent>
-          <LoginSection>
-            <LoginTitle>관리자 로그인</LoginTitle>
-            <LoginForm onSubmit={handleLogin}>
-              <InputGroup>
-                <InputLabel>아이디</InputLabel>
-                <Input 
-                  type="text"
-                  placeholder='아이디'
-                  onChange={(e) => setId(e.target.value)}
-                />
-              </InputGroup>
-              <InputGroup>
-                <InputLabel>비밀번호</InputLabel>
-                <Input 
-                  type="password"
-                  placeholder='비밀번호'
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-              </InputGroup>
-              <SubmitButton type='submit' $fontsLoaded={fontsLoaded}>로그인</SubmitButton>
-            </LoginForm>
-          </LoginSection>
-          <BrandingSection>
-            <SloganWrapper>
-              <Slogan src={Branding} alt="Branding Image" />
-            </SloganWrapper>
-          </BrandingSection>
-        </MainContent>
-      </Container>
-    </>
+    <Container>
+      <AdminHeader />
+      <MainContent>
+        <LeftSection>
+          <LoginTitle>관리자 로그인</LoginTitle>
+          <LoginForm onSubmit={handleLogin}>
+            <InputGroup>
+              <InputLabel>아이디</InputLabel>
+              <Input 
+                type="text"
+                placeholder='아이디'
+                onChange={(e) => setId(e.target.value)}
+              />
+            </InputGroup>
+            <InputGroup>
+              <InputLabel>비밀번호</InputLabel>
+              <Input 
+                type="password"
+                placeholder='비밀번호'
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+            </InputGroup>
+            <SubmitButton type='submit'>로그인</SubmitButton>
+          </LoginForm>
+        </LeftSection>
+        <RightSection>
+          <SloganWrapper>
+            <Slogan src={Branding} alt="Branding Image" />
+          </SloganWrapper>
+        </RightSection>
+      </MainContent>
+    </Container>
   );
 };
 
@@ -93,7 +90,7 @@ const MainContent = styled.main`
   }
 `;
 
-const LoginSection = styled.div`
+const LeftSection = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -146,7 +143,7 @@ const SubmitButton = styled.button`
   margin-top: 1rem;
 `;
 
-const BrandingSection = styled.div`
+const RightSection = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -156,7 +153,7 @@ const BrandingSection = styled.div`
 `;
 
 const SloganWrapper = styled.div`
-  width: 50%; // 슬로건의 최대 너비를 제한
+  width: 80%; // 슬로건의 최대 너비를 제한
   max-width: 456px; // 슬로건의 최대 크기 설정
   min-width: 200px; // 슬로건의 최소 크기 설정
 `;

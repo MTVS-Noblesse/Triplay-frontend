@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { GlobalStyle } from '../styles/GlobalStyles';
 import HeaderLogo from '../assets/svgs/header_logo.svg';
 
 const AdminHeader = () => {
@@ -12,15 +11,12 @@ const AdminHeader = () => {
   }, [navigate]);
 
   return (
-    <>
-      <GlobalStyle />
-      <Header>
-        <LogoWrapper>
-          <Logo src={HeaderLogo} alt='Header Logo' />
-        </LogoWrapper>
-        <LoginButton onClick={handleLoginClick}>LOGIN</LoginButton>
-      </Header>
-    </>
+    <Header>
+      <LogoWrapper>
+        <Logo src={HeaderLogo} alt='Header Logo' />
+      </LogoWrapper>
+      <LoginButton onClick={handleLoginClick}>LOGIN</LoginButton>
+    </Header>
   );
 };
 
@@ -58,13 +54,7 @@ const LoginButton = styled.button`
   border: none;
   border-radius: 5px;
   padding: 0.5rem 1rem;
-  font-size: 1.3rem;
-  font-family: 'LuckiestGuy-Regular', sans-serif;
+  font-size: 1.2rem;
+  font-family: 'KoreanJJPPB', sans-serif;
   cursor: pointer;
-
-  @media (max-width: 768px) {
-    width: 70px;
-    height: 35px;
-    font-size: 0.9rem;
-  }
 `;

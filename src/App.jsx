@@ -28,6 +28,7 @@ import MyPageModify from './pages/User/MyPageModify';
 import AdminLogin from './pages/Admin/AdminLogin';
 import Admin from './pages/Admin/Admin';
 import AdminManage from './pages/Admin/AdminManage';
+import AdminManageUser from './pages/Admin/AdminManageUser';
 import AdminManageClip from './pages/Admin/AdminManageClip';
 import AdminManagePost from './pages/Admin/AdminManagePost';
 import AdminManageNotice from './pages/Admin/AdminManageNotice';
@@ -77,6 +78,7 @@ function App() {
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin/home" element={<Admin />} />
           <Route path="/admin/manage" element={<AdminManage />} />
+          <Route path="/admin/manage/user" element={<AdminManageUser />} />
           <Route path="/admin/manage/clip" element={<AdminManageClip />} />
           <Route path="/admin/manage/post" element={<AdminManagePost />} />
           <Route path="/admin/manage/notice" element={<AdminManageNotice />} />

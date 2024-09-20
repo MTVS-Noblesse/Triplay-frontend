@@ -7,15 +7,16 @@ import { faFlag, faFilm, faComment, faGamepad, faArrowRight, faArrowUp } from "@
 import AdminHeader from '../../layout/AdminHeader';
 
 const data = [
-  { name: '1', 액티비티: 95, 관광: 77, 휴양: 35 },
-  { name: '2', 액티비티: 85, 관광: 87, 휴양: 70 },
-  { name: '3', 액티비티: 80, 관광: 27, 휴양: 20 },
-  { name: '4', 액티비티: 35, 관광: 17, 휴양: 77 },
-  { name: '5', 액티비티: 30, 관광: 48, 휴양: 52 },
-  { name: '6', 액티비티: 90, 관광: 55, 휴양: 49 },
-  { name: '7', 액티비티: 70, 관광: 92, 휴양: 88 },
+  { name: '월', 액티비티: 95, 관광: 77, 휴양: 35 },
+  { name: '화', 액티비티: 85, 관광: 87, 휴양: 70 },
+  { name: '수', 액티비티: 80, 관광: 27, 휴양: 20 },
+  { name: '목', 액티비티: 35, 관광: 17, 휴양: 77 },
+  { name: '금', 액티비티: 30, 관광: 48, 휴양: 52 },
+  { name: '토', 액티비티: 90, 관광: 55, 휴양: 49 },
+  { name: '일', 액티비티: 70, 관광: 92, 휴양: 88 },
 ];
 
+// 관리자 대시보드 뷰
 const Admin = () => {
   const chartRef = useRef(null);
   const chartInstanceRef = useRef(null);
@@ -77,8 +78,16 @@ const Admin = () => {
               labels: {
                 font: {
                   family: 'KoreanHANAB',
-                  size: 16
+                  size: 18
                 }
+              }
+            },
+            title: {
+              display: true,
+              text: '취향 별 접속 추이',
+              font: {
+                family: 'KoreanHANAL',
+                size: 18
               }
             },
             tooltip: {
@@ -175,7 +184,7 @@ const Admin = () => {
                   <AlertItem>
                     <AlertContent>
                       <StyledIcon icon={faGamepad} size='lg' />
-                      <AlertText>부루마불 신고</AlertText>
+                      <AlertText>게임 신고</AlertText>
                     </AlertContent>
                     <AlertCount>1건</AlertCount>
                   </AlertItem>
@@ -234,6 +243,7 @@ const TitleContainer = styled.div`
 
 const Title = styled.h1`
   font-size: 1.7rem;
+  // font-family: 'KoreanHANAB', sans-serif;
   font-family: 'KoreanHANAB', sans-serif;
 `;
 
@@ -255,7 +265,6 @@ const StatsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  
 `;
 
 const StatCard = styled.div`
@@ -270,15 +279,8 @@ const StatCard = styled.div`
 
 const StatValue = styled.div`
   font-size: 1.7rem;
-  font-family: 'Pretendard-ExtraBold', sans-serif;
+  font-family: 'BM DoHyeon', sans-serif;
   margin-bottom: 0.5rem;
-`;
-
-const StatChange = styled.div`
-  color: green;
-  margin: 0.5rem 0;
-  font-size: 1.4rem;
-  font-family: 'Pretendard-Medium', sans-serif;
 `;
 
 const StatChangeContainer = styled.div`
@@ -295,22 +297,25 @@ const StatChangePercentage = styled.div`
   background-color: #E8F5E9;
   color: #4CAF50;
   padding: 0.25rem 0.5rem;
-  border-radius: 12px;
+  border-radius: 50px;
+  gap: 0.5rem;
   font-size: 1.4rem;
-  font-family: 'Pretendard-Medium', sans-serif;
+  font-family: 'KoreanHANAB', sans-serif;
 `;
 
 const StatChangeCount = styled.div`
   color: #545454;
   font-size: 1.4rem;
-  font-family: 'Pretendard-Medium', sans-serif;
+  font-family: 'KoreanHANAB', sans-serif;
 `;
 
 const StatLabel = styled.div`
+  display: flex;
+  justify-content: center;
   padding-top: 1rem;
   border-top: 2px solid #e0e0e0;
-  font-size: 1.2rem;
-  font-family: 'Pretendard-Medium', sans-serif;
+  font-size: 1.5rem;
+  font-family: 'KoreanHANAB', sans-serif;
 `;
 
 const AlertsContainer = styled.div`
@@ -321,10 +326,9 @@ const AlertCard = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  background-color: #f5f5f5;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
 `;
 
 const AlertItem = styled.div`
@@ -349,18 +353,17 @@ const AlertContent = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 const AlertText = styled.div`
-  font-size: 1rem;
-  font-family: 'Pretendard-Medium', sans-serif;
+  font-size: 1.2rem;
+  font-family: 'KoreanHANAB', sans-serif;
 `;
 
 const AlertCount = styled.div`
-  margin-top: 0.5rem;
   font-size: 1.4rem;
-  font-family: 'Pretendard-ExtraBold', sans-serif;
+  font-family: 'BM DoHyeon', sans-serif;
 `;
 
 const ChartContainer = styled.div`
@@ -384,13 +387,13 @@ const SummaryContainer = styled.div`
 
 const SummaryTitle = styled.div`
   font-size: 1.7rem;
-  font-family: 'Pretendard-ExtraBold', sans-serif;
+  font-family: 'BM DoHyeon', sans-serif;
 `;
 
 const SummarySubtitle = styled.div`
   color: #898989;
   font-size: 1.4rem;
-  font-family: 'Pretendard-Medium', sans-serif;
+  font-family: 'KoreanHANAB', sans-serif;
 `;
 
 const SummaryWrapper = styled.div`
@@ -409,13 +412,13 @@ const SummaryItem = styled.div`
 `;
 
 const SummaryLabel = styled.div`
-  font-size: 1.2rem;
-  font-family: 'Pretendard-Medium', sans-serif;
+  font-size: 1.3rem;
+  font-family: 'KoreanHANAB', sans-serif;
 `;
 
 const SummaryValue = styled.div`
   font-size: 1.4rem;
-  font-family: 'Pretendard-ExtraBold', sans-serif;
+  font-family: 'BM DoHyeon', sans-serif;
 `;
 
 const StyledLink = styled(RouterLink)`

@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     font-display: swap;
   }
 
-@font-face {
+  @font-face {
     font-family: 'LuckiestGuy-Regular';
     src: url('/src/assets/fonts/LuckiestGuy-Regular.ttf') format('truetype');
     font-weight: normal;
@@ -34,16 +34,24 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: 'Pretendard-ExtraBold';
-    src: url('/src/assets/fonts/Pretendard-ExtraBold.otf') format('opentype');
+    font-family: 'KoreanHANAL';
+    src: url('/src/assets/fonts/a한글나라AL.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'Pretendard-Medium';
-    src: url('/src/assets/fonts/Pretendard-Medium.otf') format('opentype');
+    font-family: 'KoreanJJPPB';
+    src: url('/src/assets/fonts/A찐빵B.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'KoreanJJPPM';
+    src: url('/src/assets/fonts/A찐빵M.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
