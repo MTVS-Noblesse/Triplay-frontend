@@ -3,6 +3,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --Basic-White: #ffffff;
+  font-family: 'Pretendard';
 }
 html,
 body {
@@ -19,6 +20,69 @@ button {
   background-color: transparent;
   outline: none;
   box-sizing: border-box;
+}
+
+/* Pretendard-thin / font-weight: 100 */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/fonts/Pretendard-Thin.woff2') format('woff2');
+  font-weight: 100;
+}
+
+/* Pretendard-ExtraLight / font-weight: 200 */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/fonts/Pretendard-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+}
+
+/* Pretendard-Light / font-weight: 300 */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/fonts/Pretendard-Light.woff2') format('woff2');
+  font-weight: 300;
+}
+
+/* Pretendard-Regular / font-weight: 400 */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/fonts/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+/* Pretendard-Medium / font-weight: 500 */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/fonts/Pretendard-Medium.woff2') format('woff2');
+  font-weight: 500;
+}
+
+/* Pretendard-SemiBold / font-weight: 600 */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/fonts/Pretendard-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+}
+
+/* Pretendard-Bold / font-weight: 700 */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/fonts/Pretendard-Bold.woff2') format('woff2');
+  font-weight: 700;
+}
+
+/* Pretendard-ExtraBold / font-weight: 800 */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/fonts/Pretendard-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+}
+
+/* Pretendard-Black / font-weight: 900 */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/fonts/Pretendard-Black.woff2') format('woff2');
+  font-weight: 900;
 }
 
 @media (max-width: 419px) {

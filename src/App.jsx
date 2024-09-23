@@ -16,6 +16,7 @@ import MobilePost from './pages/Mobile/MobilePost';
 import MobilePostDetail from './pages/Mobile/MobilePostDetail';
 import MobileClip from './pages/Mobile/MobileClip';
 import MobileClipDetail from './pages/Mobile/MobileClipDetail';
+import MobileMyPage from './pages/Mobile/MobileMyPage';
 import Login from './pages/User/Login';
 import Main from './pages/Main';
 import CallBack from '../src/auth/CallBack';
@@ -41,10 +42,14 @@ function App() {
   useEffect(() => {
     const mobileCheck = /Mobi|Android/i.test(navigator.userAgent);
     dispatch(setIsMobile(mobileCheck));
+    const port = window.location.port ? `:${window.location.port}` : '';
+    const queryParams = window.location.search;
     if (mobileCheck && !window.location.hostname.startsWith('m.')) {
-      const port = window.location.port ? `:${window.location.port}` : '';
-      const queryParams = window.location.search;
       const newUrl = `https://m.${window.location.hostname}${port}${location.pathname}${queryParams}`;
+      window.location.href = newUrl;
+    }
+    if (!mobileCheck && window.location.hostname.startsWith('m.')) {
+      const newUrl = `https://${window.location.hostname}${port}${location.pathname}${queryParams}`;
       window.location.href = newUrl;
     }
   }, [location, dispatch]);
@@ -62,6 +67,7 @@ function App() {
           <Route path="/clip" element={<MobileClip />} />
           <Route path="/clip/:clipId" element={<MobileClipDetail />} />
           <Route path="/clip/:clipId/ready" element={<MobileClipReady />} />
+          <Route path="/mypage" element={<MobileMyPage />} />
         </>
       ) : (
         <>
@@ -82,7 +88,7 @@ function App() {
           <Route path="/admin/manage/notice" element={<AdminManageNotice />} />
           <Route path="/manage/trip" element={<AdminManageTrip />} />
         </>
-      )} 
+      )}
     </Routes>
   );
 }
