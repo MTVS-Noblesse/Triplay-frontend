@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+import {PostAxiosInstance} from "../../axios/AxiosMethod.js";
 
 import LeftContainer from '../../components/planTripPage/LeftContainer.jsx';
 import RightContainer from '../../components/planTripPage/RightContainer.jsx';
@@ -41,7 +42,7 @@ const Plan = () => {
     setLocationList(data);
   };
 
-  const onClickCompleteBtnHandler = () => {
+  const onClickCompleteBtnHandler = async () => {
     const data = {
       tripTitle: tripTitle,
       tripParty: partyName,
@@ -51,6 +52,9 @@ const Plan = () => {
     }
 
     console.log(data);
+    const url = "https://localhost:8443/trip";
+    const res = await PostAxiosInstance(url, data);
+    console.log(res);
   }
 
   return (
