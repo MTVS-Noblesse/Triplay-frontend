@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-
 
 import LeftContainer from '../../components/planTripPage/LeftContainer.jsx';
 import RightContainer from '../../components/planTripPage/RightContainer.jsx';
@@ -18,6 +18,10 @@ const TotalContainer = styled.div`
 `;
 
 const Plan = () => {
+  const location = useLocation();
+  const isNewTripScrap = location.state?.isNewTripScrap;
+  const newTripScrapData = location.state?.newTripScrapData;
+
   const [locationList, setLocationList] = useState([]);
 
   const [selectedPlanDay, setSelectedPlanDay] = useState(0);
@@ -76,6 +80,8 @@ const Plan = () => {
           setDateRange={setDateRange}
           dateRange={dateRange}
           setPartyName={setPartyName}
+          isNewTripScrap={isNewTripScrap}
+          newTripScrapData={newTripScrapData}
         ></RightContainer>
       </TotalContainer>
     </div>

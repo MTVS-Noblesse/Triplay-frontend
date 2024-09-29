@@ -89,6 +89,17 @@ const AddPlanContainer = (props) => {
         setOpenDropdownIndex(-1);
     };
 
+    useEffect(() => {
+        if(props.isNewTripScrap){
+            const newPlanDropDownBox = {
+                day: PlanDropDownBoxes.length + 1,
+            };
+            setPlanDropDownBoxes([newPlanDropDownBox]);
+            props.setSelectedPlanDay(1);
+            props.addToLocationList(props.newTripScrapData);
+        }
+    }, [props.isNewTripScrap]);
+
     return (
         <Container>
             <PlanContentsContainer>

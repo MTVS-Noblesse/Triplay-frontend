@@ -21,6 +21,8 @@ const RightContainer = (props) => {
           setSelectedPlanDay={props.setSelectedPlanDay}
           selectedPlanDay={props.selectedPlanDay}
           setIsReArrange={props.setIsReArrange}
+          isNewTripScrap={isNewTripScrap}
+          newTripScrapData={props.newTripScrapData}
         ></AddPlanContainer>
       </ContentsContainer>
     </Container>

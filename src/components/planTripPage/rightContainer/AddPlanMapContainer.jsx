@@ -34,7 +34,7 @@ const AddPlanMapContainer = (props) => {
     return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`;
   };
 
-  const onClickSearchLocationBtnHandler = async (e) => {
+  const onClickSearchLocationBtnHandler = async () => {
     const placeData = await getGooglePlaceDetailDataByLocationName(searchedLocation);
     let pos = {
       lat: placeData.data.result.geometry.location.lat,
