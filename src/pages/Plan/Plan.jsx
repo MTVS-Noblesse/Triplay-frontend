@@ -5,7 +5,7 @@ import LeftContainer from '../../components/planTripPage/LeftContainer.jsx';
 import RightContainer from '../../components/planTripPage/RightContainer.jsx';
 import Header from '../../layout/Header.jsx';
 
-import { PostAxiosInstance } from '../../axios/AxiosMethod.js';
+import { registerTrip } from '../../api/registerTrip.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -50,9 +50,7 @@ const Plan = () => {
       tripEndDate: dateRange[1],
       places: locationList
     }
-
-    const url = "https://localhost:8443/trip";
-    const res = await PostAxiosInstance(url, data);
+    const res = await registerTrip(data);
   }
 
   return (
