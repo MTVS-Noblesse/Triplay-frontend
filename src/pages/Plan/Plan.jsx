@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import {PostAxiosInstance} from "../../axios/AxiosMethod.js";
-
 import LeftContainer from '../../components/planTripPage/LeftContainer.jsx';
 import RightContainer from '../../components/planTripPage/RightContainer.jsx';
 import Header from '../../layout/Header.jsx';
+
+import { PostAxiosInstance } from '../../axios/AxiosMethod.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -51,10 +51,8 @@ const Plan = () => {
       places: locationList
     }
 
-    console.log(data);
     const url = "https://localhost:8443/trip";
     const res = await PostAxiosInstance(url, data);
-    console.log(res);
   }
 
   return (
