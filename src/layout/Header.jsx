@@ -65,7 +65,7 @@ const Header = () => {
                 <Link to="/clip">클립 둘러보기</Link>
               </li>
               <li>
-                <Link to="/post">지난여행</Link>
+                <Link to="/mypage">지난여행</Link>
               </li>
               <li>
                 {userInfo ? (
