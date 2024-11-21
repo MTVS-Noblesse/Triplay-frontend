@@ -1,42 +1,25 @@
 import { GetAxiosInstance } from '../axios/AxiosMethod';
 import defaultProfileImage from '../assets/images/default-profile-image.png';
 
-// 유저 ID를 가져오는 함수
-export const fetchUserId = async () => {
-  try {
-    const response = await GetAxiosInstance('/');
-    return response.data.userId;
-  } catch (error) {
-    console.error('Error fetching user ID:', error);
-    throw error;
-  }
-};
-
 // 유저 세부 정보를 가져오는 함수
-export const fetchUserDetail = async (userId) => {
+export const fetchUserDetail = async () => {
   try {
-    if (!userId) {
-      userId = await fetchUserId();
-    }
-    // 유저 정보 가져오기
-    const userResponse = await GetAxiosInstance(`/user/${userId}`);
+    // 사용자 정보 가져오기
+    const response = await GetAxiosInstance('/profile');
+    const { userName, email, profileUrl } = response.data;
 
-    // 프로필 이미지 가져오기
-    const profileImageResponse = await GetAxiosInstance(
-      `/file/image/profile/${userId}`
-    );
 
-    // 기본 이미지가 필요한 경우 처리
-    const profilePicUrl =
-      profileImageResponse.data === "default"
-        ? defaultProfileImage
-        : profileImageResponse.data;
+    // 프로필 이미지가 기본 값일 경우 처리
+    const resolvedProfileUrl =
+      profileUrl === 'default' || !profileUrl ? defaultProfileImage : profileUrl;
 
-    // 유저 정보와 프로필 이미지 URL 반환
+    // 유저 정보 반환
     return {
-      ...userResponse.data,
-      profilePicUrl,
+      userName,
+      email,
+      profileUrl: resolvedProfileUrl, // 최종 프로필 URL
     };
+    
   } catch (error) {
     console.error('Error fetching user details:', error);
     throw error;
