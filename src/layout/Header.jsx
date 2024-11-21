@@ -84,7 +84,7 @@ const Header = () => {
       </HeaderWrapper>
       {userInfo && (
         <ProfileContainer>
-          <img src={userInfo.profilePicUrl} alt="Profile" />
+          <img src={userInfo.profileUrl} alt="Profile" />
           <span>{userInfo.userName}</span>
           <ModifyButton onClick={handleModifyClick}>내 정보 수정</ModifyButton>
         </ProfileContainer>
