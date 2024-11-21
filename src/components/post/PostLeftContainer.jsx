@@ -47,7 +47,7 @@ const LeftContainer = ({ post, isLoaded }) => {
     return (
         <LeftPanel>
             <TripTitle post={post} />
-            <MapContainer isLoaded={isLoaded} places={post.tripDetails.places} />
+            <MapContainer isLoaded={isLoaded} places={post.places} />
             <TripInfo
                 post={post}
                 startDate={startDate}
