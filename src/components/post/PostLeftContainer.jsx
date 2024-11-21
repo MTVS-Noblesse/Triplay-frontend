@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import TripTitle from './leftContainer/TripTitle';
 import MapContainer from './leftContainer/MapContainer';
 import TripInfo from './leftContainer/TripInfo';
+import ReportModal from './leftContainer/ReportModal';
 import CommentSection from '../comment/CommentSection';
 import { fetchComments, addComment, updateComment, deleteComment } from '../../api/comment';
 import useCurrentUser from '../../hooks/get-current-user';
@@ -10,6 +11,12 @@ import useCurrentUser from '../../hooks/get-current-user';
 const LeftContainer = ({ post, isLoaded }) => {
     const [comments, setComments] = useState([]);
     const { userId: currentUserId } = useCurrentUser(); // 사용자 ID 가져오기
+
+    const [showReportModal, setShowReportModal] = useState(false);
+
+    const openReportModal = () => setShowReportModal(true);
+    const closeReportModal = () => setShowReportModal(false);
+
 
     useEffect(() => {
         const loadComments = async () => {
@@ -63,7 +70,10 @@ const LeftContainer = ({ post, isLoaded }) => {
 
     return (
         <LeftPanel>
-            <TripTitle post={post} />
+            <Header>
+                <TripTitle post={post} />
+                <OptionsButton onClick={openReportModal}>•••</OptionsButton>
+            </Header>
             <MapContainer isLoaded={isLoaded} places={post.places} />
             <TripInfo post={post} />
             <CommentSection
@@ -73,15 +83,35 @@ const LeftContainer = ({ post, isLoaded }) => {
                 updateComment={handleUpdateComment}
                 deleteComment={handleDeleteComment}
             />
+            {showReportModal && <ReportModal onClose={closeReportModal} />}
         </LeftPanel>
     );
+
 };
 
 export default LeftContainer;
+
+const Header = styled.div`
+    display: flex;
+    justify-content: space-between; /* Align items to the left and right */
+    align-items: center; /* Vertically center align */
+    margin-bottom: 20px; /* Add some space below the header */
+`;
 
 const LeftPanel = styled.div`
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
+`;
+
+const OptionsButton = styled.button`
+    background: transparent;
+    border: none;
+    font-size: 1.5rem; /* Slightly larger font size for visual hierarchy */
+    cursor: pointer;
+
+    &:hover {
+        color: #007bff; /* Optional hover effect */
+    }
 `;

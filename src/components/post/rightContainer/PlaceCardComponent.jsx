@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import ReportModal from './ReportModal';
 
 const PlaceCardComponent = ({ place }) => {
-    const [showReportModal, setShowReportModal] = useState(false);
-
-    const openReportModal = () => setShowReportModal(true);
-    const closeReportModal = () => setShowReportModal(false);
-
+    
     // `files` 배열에서 이미지 데이터 가져오기
     const placeImages = place.files || []; // files가 없을 경우 빈 배열로 대체
 
@@ -18,7 +13,6 @@ const PlaceCardComponent = ({ place }) => {
                     <h4>{place.locationName}</h4>
                     <p>{place.address || '주소를 찾을 수 없습니다.'}</p>
                 </PlaceInfo>
-                <OptionsButton onClick={openReportModal}>•••</OptionsButton>
             </PlaceHeader>
             <Images>
                 {placeImages.length > 0 ? (
@@ -27,7 +21,6 @@ const PlaceCardComponent = ({ place }) => {
                     ))
                 ) : (null)}
             </Images>
-            {showReportModal && <ReportModal onClose={closeReportModal} />}
         </PlaceCard>
     );
 };
@@ -38,9 +31,8 @@ export default PlaceCardComponent;
 const PlaceCard = styled.div`
     margin-bottom: 10px;
     padding: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #F8FAF7;
     border-radius: 8px;
-    background-color: #fff;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
@@ -63,13 +55,6 @@ const PlaceInfo = styled.div`
     }
 `;
 
-const OptionsButton = styled.button`
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-`;
-
 const Images = styled.div`
     margin-top: 10px;
     display: flex;
@@ -82,9 +67,3 @@ const Images = styled.div`
         border-radius: 8px;
     }
 `;
-
-const NoImageText = styled.div`
-    font-size: 1rem;
-    color: #999;
-`;
-
