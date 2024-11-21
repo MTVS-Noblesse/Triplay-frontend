@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { fetchUserDetail } from '../../api/userDetail';
+import { fetchUserDetail } from '../../api/user';
 import { uploadProfileImage } from '../../api/uploadProfile';
 import { deleteProfileImage } from '../../api/deleteProfile';
 import defaultProfileImage from '../../assets/images/default-profile-image.png'

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { fetchUserDetail } from '../api/userDetail';
+import { fetchUserDetail } from '../api/user';
 import MainLogo from '../../src/assets/images/logo.png';
 
 const Header = () => {

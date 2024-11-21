@@ -3,17 +3,18 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import FollowButton from './FollowButton';
 
-const TripInfo = ({ post, startDate, endDate, isFollowing, toggleFollowing }) => {
+const TripInfo = ({ post, isFollowing, toggleFollowing }) => {
     return (
         <InfoWrapper>
             <InfoContainer>
                 <WhoWith>{post.tripParty}</WhoWith>
-                <Dates>{`${startDate} ~ ${endDate}`}</Dates>
+                <Dates>{`${post.tripStartDate} ~ ${post.tripEndDate}`}</Dates>
             </InfoContainer>
             <Profile>
                 <Link to={`/profile/${post.userId}`}>
                     <img src={post.profileImageUrl} alt="Profile" />
                 </Link>
+                <p>{post.userName}</p>
                 <FollowButton isFollowing={isFollowing} toggleFollowing={toggleFollowing} />
             </Profile>
         </InfoWrapper>

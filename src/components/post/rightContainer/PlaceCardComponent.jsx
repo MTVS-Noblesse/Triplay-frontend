@@ -25,9 +25,7 @@ const PlaceCardComponent = ({ place }) => {
                     placeImages.map((file) => (
                         <img src={file.fileUrl} alt={place.locationName} key={file.fileId} />
                     ))
-                ) : (
-                    <NoImageText>이미지가 없습니다.</NoImageText>
-                )}
+                ) : (null)}
             </Images>
             {showReportModal && <ReportModal onClose={closeReportModal} />}
         </PlaceCard>
