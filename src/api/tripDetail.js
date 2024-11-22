@@ -1,4 +1,4 @@
-import { PostAxiosInstance, GetAxiosInstance, PutAxiosInstance } from '../axios/AxiosMethod';
+import { PostAxiosInstance, GetAxiosInstance, PutAxiosInstance, DeleteAxiosInstance } from '../axios/AxiosMethod';
 
 export const fetchTripDetails = async (tripId) => {
   try {
@@ -27,5 +27,12 @@ export const updateTrip = async (updatedTrip) => {
   } catch (error) {
     console.error('Error updating trip:', error);
     throw error;
+  }
+};
+
+export const deleteTrip = async (tripId) => {
+  const response = await DeleteAxiosInstance(`/api/trips/${tripId}`);
+  if (!response.ok) {
+    throw new Error('Failed to delete trip');
   }
 };
