@@ -47,6 +47,10 @@ const PlanDetail = () => {
     }
   };
 
+  const handleCreatePost = () => {
+    navigate(`/post/create/${tripId}`); // Navigate to the post creation page
+  };
+
   if (loading) {
     return <div>여행 정보를 가져오는 중입니다...</div>;
   }
@@ -62,10 +66,13 @@ const PlanDetail = () => {
         <LeftContainer trip={trip} />
         <RightContainer trip={trip} />
       </Container>
-      {trip.userId === currentUserId && ( // Show buttons only if the user is the author
+      {console.log('trip.userId:', trip.userId)}
+      {console.log('currentUserId:', currentUserId)}
+      {trip.userId === currentUserId && ( // Ensure this matches the actual property name
         <ActionButtons>
           <EditButton onClick={handleEdit}>수정</EditButton>
           <DeleteButton onClick={handleDelete}>삭제</DeleteButton>
+          <CreatePostButton onClick={handleCreatePost}>게시물 생성</CreatePostButton>
         </ActionButtons>
       )}
     </div>
@@ -85,34 +92,51 @@ const Container = styled.div`
 const ActionButtons = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin: 20px auto 60px;
 `;
 
 const EditButton = styled.button`
   padding: 10px 20px;
   margin-right: 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 
   &:hover {
-    background-color: #45a049;
+    background-color: #d6d6d6; /* Slightly darker gray */
   }
 `;
 
 const DeleteButton = styled.button`
   padding: 10px 20px;
-  background-color: #f44336;
-  color: white;
-  border: none;
+  margin-right: 10px;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 
   &:hover {
-    background-color: #d32f2f;
+    background-color: #d6d6d6; /* Slightly darker gray */
+    color: #000;
+  }
+`;
+
+const CreatePostButton = styled.button`
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #d6d6d6; /* Slightly darker gray */
+    color: #000;
   }
 `;
